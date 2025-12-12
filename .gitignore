@@ -1,0 +1,34 @@
+# Ignore everything by default
+*
+
+# Allow directories so negation rules can match files inside
+!*/
+
+# Keep this file tracked
+!.gitignore
+
+# Allow LaTeX sources and exported docs/images
+!*.tex
+!*.pdf
+!*.png
+!*.jpg
+!**/*.tex
+!**/*.pdf
+!**/*.png
+!**/*.jpg
+
+# Optional: common LaTeX build artifacts remain ignored
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.lof
+*.lot
+*.nav
+*.snm
+*.xdv
