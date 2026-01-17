@@ -186,39 +186,55 @@
 表\ref{tab:correlation}に示すように、2024年は相関係数が $R=0.070$ ($p=0.470$) であり、統計的に有意な相関は認められなかった。2025年は $R=0.309$ ($p < 0.001$) であり、弱い正の相関が確認された。
 
 \subsection{燃油効率の推移}
-投入された燃油に対する生産性を示す燃油効率（$E_o$）の算出結果を表\ref{tab:fuel_efficiency}に示す。
+投入された燃油に対する生産性を示す燃油効率（$E_o$）の算出結果を表\ref{tab:fuel_efficiency}に示す。ここで、燃油使用量はGNSS航跡データと給油記録を統合し、給油間隔に基づく均等配分方式により各航跡レコードに燃油消費量を配分して推定した値である。
 
 \begin{table}[htbp]
   \centering
-  \caption{漁期ごとの燃油効率（漁獲重量 / 給油量）}
+  \caption{漁期ごとの燃油効率（漁獲重量 / 推定燃油使用量）}
   \label{tab:fuel_efficiency}
-  \begin{tabular}{lccc}
+  \begin{tabular}{lcccc}
     \hline
-    漁期 & 総漁獲量 (kg) & 総給油量 (L) & 燃油効率 ($E_o$: kg/L) \\
+    漁期 & 総漁獲量 (kg) & 推定燃油使用量 (L) & 総量ベース $E_o$ (kg/L) & 月別平均 $\bar{E_o}$ (kg/L) \\
     \hline
-    2023年 & 46,814 & 72,436 & 0.646 \\
-    2024年 & 55,762 & 65,453 & 0.852 \\
-    2025年 & 59,104 & 72,174 & 0.819 \\
+    2023年 & 46,815 & 13,248 & 3.53 & 9.83 \\
+    2024年 & 55,763 & 18,163 & 3.07 & 2.10 \\
+    2025年 & 59,104 & 14,815 & 3.99 & 6.44 \\
+    \hline
+    全期間 & 161,681 & 46,226 & 3.50 & 6.36 \\
     \hline
   \end{tabular}
+  \begin{flushleft}
+    \small
+    ※燃油使用量は、GNSS航跡データの各レコードに給油間隔に基づき燃油消費量を配分して推定した値。
+    ※給油記録が存在しない2隻については、全船平均の燃油消費率（0.106 L/レコード）を適用。
+  \end{flushleft}
 \end{table}
 
-表\ref{tab:fuel_efficiency}より、燃油効率は2023年の0.646 kg/Lから2024年には0.852 kg/Lへと上昇したものの、2025年は0.819 kg/Lとなり、前年（2024年）と比較して数値の低下が確認された。
-各要素の変化を見ると、2025年の総漁獲量は2024年比で約6.0\%（+3,342 kg）増加した。一方で、同期間における総給油量は約10.3\%（+6,721 L）増加した。
-結果として、2025年は漁獲量の増加率よりも給油量の増加率が上回ったため、単位燃油あたりの燃油効率は低下する結果となった。
-ただし、燃油給油量の算出には同漁協の管理している給油記録を用いており、29隻中の27隻分のデータが含まれているものの、全隻分のデータが揃っていないため、これらの数値は参考値として解釈する必要がある。
+表\ref{tab:fuel_efficiency}より、燃油効率は年度間で変動が見られる。2023年は9.83 kg/L、2024年は2.10 kg/L、2025年は6.44 kg/Lとなった。ただし、2023年については、GNSS機器の導入が2023年6月中旬以降段階的に行われたため、漁期前半のデータが一部欠損しており、燃油使用量が過小評価されている可能性がある点に留意が必要である。具体的には、8月時点で稼働していたのは8隻のみであり、残りの21隻は9月以降に順次稼働を開始したため、2023年7〜8月の燃油効率は実態よりも高く算出されている可能性がある。
 
 \subsection{月別燃油効率の変動特性分析}
-年間を通じての効率の変動を把握するため、月別の燃油効率の推移を比較した（図\ref{fig:monthly_fuel_efficiency}）。
+年間を通じての効率の変動を把握するため、月別の燃油効率の推移を比較した（図\ref{fig:monthly_fuel_efficiency}）。棒グラフは月別漁獲量（kg）を、折れ線グラフは燃油効率（kg/L）を示す。点線は期間平均燃油効率を表す。
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=14cm]{images/fig_monthly_fuel_efficiency_catch.png}
-  \caption{月別燃油効率の推移（2023年〜2025年）}
+  \includegraphics[width=14cm]{images/fig_monthly_fuel_efficiency_catch_fish.png}
+  \caption{月別燃油効率と漁獲量の推移（2023年〜2025年）}
   \label{fig:monthly_fuel_efficiency}
 \end{figure}
 
-図\ref{fig:monthly_fuel_efficiency}を参照すると、各年とも7月が効率のピークとなる点は共通している。2023年は燃油効率が7月に3.05 kg/L、9月に1.51 kg/Lと平均を上回っており、その後低下している。2024年は8月まで平均以上の漁獲量が維持された後、9月以降に0.1kg/L以下の水準まで低下する傾向が見られた。対して2025年は、7月をピークに8月に効率が0.16kg/Lまで低下するものの、11月は平均に近い水準まで回復していることが特徴的である。
+図\ref{fig:monthly_fuel_efficiency}を参照すると、2023年7〜8月は燃油効率が極端に高い値を示しているが、これはGNSS機器の導入が2023年6月中旬以降に段階的に行われたためである。そのため、2023年7〜8月は漁獲量に対応する燃油使用量が十分に捕捉できておらず、燃油効率が過大評価されている。
+
+そこで、GNSS機器が概ね全船に導入された2023年9月以降のデータのみを抽出し、再度可視化を行った（図\ref{fig:monthly_fuel_efficiency_filtered}）。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=14cm]{images/fig_monthly_fuel_efficiency_catch_fish_filtered.png}
+  \caption{月別燃油効率と漁獲量の推移（2023年9月〜2025年11月）}
+  \label{fig:monthly_fuel_efficiency_filtered}
+\end{figure}
+
+
+図\ref{fig:monthly_fuel_efficiency_filtered}を参照すると、GNSS導入初期を除外することで、より信頼性の高い燃油効率の季節変動が確認できた。2024年は7月に6.25 kg/L、8月に3.32 kg/Lと平均値の3.30 kg/L以上の効率を示したのち、9月以降は0.50 kg/L以下に低下した。2025年は7月に8.06 kg/L、8月に9.24 kg/Lを記録したのち、9月、10月に平均以下まで低下したものの、11月は12.62 kg/Lと高い値を示したことが特徴的である。
 
 \subsection{月別CPUEの変動特性分析}
 年間を通じての効率の変動を把握するため、月別のCPUEの推移を比較した（図\ref{fig:monthly_cpue}）。
@@ -226,7 +242,7 @@
 \begin{figure}[H]
   \centering
    \includegraphics[width=14cm]{images/fig_monthly_catch_cpue.png}
-  \caption{月別CPUEの推移（2024年〜2025年）}
+  \caption{月別CPUEと漁獲量の推移（2024年〜2025年）}
   \label{fig:monthly_cpue}
 \end{figure}
 

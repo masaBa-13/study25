@@ -214,9 +214,13 @@
         ここで、$W$ は当該操業における漁獲重量（水揚げ記録および操業日誌より取得）である。
 
         \item \textbf{燃油効率（Fuel Efficiency Index, $E_o$）} \\
-        一定期間ごとの給油量 $O_{\mathrm{total}}$ と、同期間内の漁獲総量 $W_{\mathrm{total}}$ を用いて期間全体の効率として算出した。
+        燃油効率は、一定期間における漁獲総量 $W_{\mathrm{total}}$ を燃油使用量 $F_{\mathrm{total}}$ で除して算出した。
         \begin{equation}
-        E_o = \frac{W_{\mathrm{total}}}{O_{\mathrm{total}}}
+        E_o = \frac{W_{\mathrm{total}}}{F_{\mathrm{total}}}
         \end{equation}
+
+        本研究では、GNSS航跡データと給油記録を統合し、各航跡レコードに燃油消費量を配分する手法を採用した。具体的には、給油間隔に基づく均等配分を行い、給油日$A$から次回給油日$B$までの期間に取得されたGNSSレコード数$N$を計算し、給油量$Q_B$を期間内の全レコードに均等配分した（各レコードの燃油消費量 $= Q_B / N$）。
+        
+        なお、給油記録が存在しない2隻（matsumae01、matsumae03）については、給油記録がある27隻の平均燃油消費率（0.106 L/レコード）を適用した。この推定による追加燃油は総燃油使用量の5.7\%に相当した。
     \end{itemize}
 \end{enumerate}
