@@ -12,7 +12,7 @@
   % 左側の図 (a)
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{images/2024m.png}
+    \includegraphics[width=\textwidth]{images/2024m2.png}
     \caption{2024年}
     \label{fig:2024m}
   \end{subfigure}
@@ -20,7 +20,7 @@
   % 右側の図 (b)
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{images/2025m.png}
+    \includegraphics[width=\textwidth]{images/2025m2.png}
     \caption{2025年}
     \label{fig:2025m}
   \end{subfigure}
@@ -45,14 +45,14 @@
   % 上段：2023年と2024年
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{images/2023g.png}
+    \includegraphics[width=\textwidth]{images/2023g2.png}
     \caption{2023年}
     \label{fig:2023g}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{images/2024g.png}
+    \includegraphics[width=\textwidth]{images/2024g2.png}
     \caption{2024年}
     \label{fig:2024g}
   \end{subfigure}
@@ -62,7 +62,7 @@
   % 下段：2025年（中央寄せ）
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{images/2025g.png}
+    \includegraphics[width=\textwidth]{images/2025g2.png}
     \caption{2025年}
     \label{fig:2025g}
   \end{subfigure}
@@ -83,14 +83,14 @@
   \centering
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{images/2024m.png}
+    \includegraphics[width=\textwidth]{images/2024m2.png}
     \caption{操業日誌ベース}
     \label{fig:2024m_comp}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{images/2024g.png}
+    \includegraphics[width=\textwidth]{images/2024g2.png}
     \caption{水揚げ記録ベース}
     \label{fig:2024g_comp}
   \end{subfigure}
@@ -102,14 +102,14 @@
   \centering
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{images/2025m.png}
+    \includegraphics[width=\textwidth]{images/2025m2.png}
     \caption{操業日誌ベース}
     \label{fig:2025m_comp}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{images/2025g.png}
+    \includegraphics[width=\textwidth]{images/2025g2.png}
     \caption{水揚げ記録ベース}
     \label{fig:2025g_comp}
   \end{subfigure}
@@ -120,6 +120,63 @@
 以上の比較から、どちらの手法でも利用頻度分布の全体的な傾向や主要漁場の位置には大きな差異は見られなかった。すなわち、いずれの手法を用いても操業実態が可視化されており、主要な漁場の抽出には両手法とも有効であることが確認された。
 
 
+\section{漁場利用の空間的変遷}
+\label{sec:spatial_transition}
+
+本節では、2024年および2025年の操業データを比較し、漁場の空間的な変化を定量的に可視化した結果について述べる。
+
+\subsection{漁場の安定性と流動性}
+2カ年の操業海域を統合し、利用の継続性に基づいて分類した結果を図\ref{fig:union_map}に示す。
+本図では、両年に共通して利用された海域を赤色、2024年のみに利用が確認された海域を緑色、2025年に新たに利用が確認された海域を紫色で示している。
+
+\begin{figure}[htbp]
+  \centering
+   \includegraphics[width=12cm]{images/差分と共通.png}
+  \caption{2024年・2025年の漁場利用範囲の比較（共通・消失・新規）}
+  \label{fig:union_map}
+\end{figure}
+
+また、各区分のグリッド数および全利用海域に対する構成比を表\ref{tab:spatial_stats}に示す。
+
+\begin{table}[htbp]
+  \centering
+  \caption{利用海域の構成比（2024年・2025年）}
+  \label{tab:spatial_stats}
+  \begin{tabular}{lrr}
+    \hline
+    \multicolumn{1}{c}{区分} & \multicolumn{1}{c}{グリッド数 (n)} & \multicolumn{1}{c}{構成比 (\%)} \\
+    \hline
+    共通エリア & 716 & 53.7 \\
+    2024年のみ & 258 & 19.4 \\
+    2025年のみ & 359 & 26.9 \\
+    \hline
+    合計（和集合） & 1,333 & 100.0 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+解析の結果、全1,333グリッドのうち、過半数となる716グリッド（53.7\%）が両年に共通して利用されていた。単年度のみ利用された海域については、「2025年のみ」のグリッド数（359）が「2024年のみ」のグリッド数（258）を上回った。
+
+\subsection{利用強度の経年変化}
+次に、共通して利用されている海域内における「利用頻度（強度）」の増減を可視化した結果を図\ref{fig:diff_map}に示す。
+本図は、2025年の利用頻度から2024年の利用頻度を差し引いた差分を示しており、青色のエリアは2024年の方が頻繁に利用された海域、赤色のエリアは2025年の方が頻繁に利用された海域を表している。
+
+可視化にあたっては、変化の規模を詳細に捉えるため、差分値（回）に対して以下の11段階の階級区分を適用した。
+\begin{itemize}
+    \item \textbf{減少（青色）}: $\sim -500, \sim -200, \sim -100, \sim -50, \sim -10$
+    \item \textbf{変化なし（白色）}: $-10 \sim 10$
+    \item \textbf{増加（赤色）}: $10 \sim 50, \sim 100, \sim 200, \sim 500, 500 \sim$
+\end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=12cm]{images/henka.png}
+  \caption{2024年から2025年にかけた利用頻度の増減分布}
+  \label{fig:diff_map}
+\end{figure}
+
+結果として、2025年は2024年に比べて南西側で操業が行われた傾向が示された。また、港付近でも変化が見られ、各年で使用する港が変化している様子も明らかとなった。
+
 
 \section{洋上風車建設予定海域との空間的重複}
 4.1節で明らかになった操業実態と、洋上風力発電の導入が検討されている「促進区域」との空間的な重複状況を評価した結果を図\ref{fig:overlap}に示す。
@@ -128,7 +185,7 @@
 
 \begin{figure}[H]
   \centering
-   \includegraphics[width=12cm]{images/overlap.png}
+  \includegraphics[width=12cm]{images/overlap2.png}
   \caption{利用頻度と促進区域の空間的重複}
   \label{fig:overlap}
 \end{figure}
@@ -143,7 +200,7 @@
 
 \begin{figure}[H]
   \centering
-   \includegraphics[width=12cm]{images/fig4_12_effort_vs_catch_scatter.png}
+  \includegraphics[width=12cm]{images/fig4_12_effort_vs_catch_scatter.png}
   \caption{1回の操業あたりの総移動距離と漁獲量の関係（2024年 vs 2025年）}
   \label{fig:cpue_scatter}
 \end{figure}
@@ -241,7 +298,7 @@
 
 \begin{figure}[H]
   \centering
-   \includegraphics[width=14cm]{images/fig_monthly_catch_cpue.png}
+  \includegraphics[width=14cm]{images/fig_monthly_catch_cpue2.png}
   \caption{月別CPUEと漁獲量の推移（2024年〜2025年）}
   \label{fig:monthly_cpue}
 \end{figure}
